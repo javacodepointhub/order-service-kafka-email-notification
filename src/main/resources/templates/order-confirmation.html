@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+    <style> body { font-family: Arial, sans-serif; } </style>
+</head>
+<body>
+<h2>Dear [[${customerName}]],</h2>
+<p>Thank you for shopping with <strong>[[${companyName}]]</strong>.</p>
+<p>We are pleased to confirm that we have successfully received your order.</p>
+
+<h3>Order Overview</h3>
+<p><strong>Order Number:</strong> [[${orderNumber}]]</p>
+<p><strong>Order Date:</strong> [[${orderDate}]]</p>
+
+<h3>Order Summary</h3>
+<ul>
+    <th:block th:each="item : ${items}">
+        <li th:text="${item.productName} + ' x ' + ${item.quantity} + ' — $' + ${item.price}"></li>
+    </th:block>
+</ul>
+
+<p><strong>Total Charged:</strong> $[[${totalAmount}]]</p>
+
+<p>Our team is currently preparing your items for shipment.</p>
+<p>Thank you for your business!</p>
+</body>
+</html>
